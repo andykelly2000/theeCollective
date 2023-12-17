@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Admin-layout}"
+>
+<body>
+<div layout:fragment="body" class="main">
+    <section class="main">
+        <div class="main-top">
+            <h1>Attendance</h1>
+            <i class="fas fa-user-cog"></i>
+        </div>
+        <div class="users">
+            <div class="card">
+                <img th:src="@{/images/anonymous.jpg}">
+                <h4>Sam David</h4>
+                <p>Ui designer</p>
+                <div class="per">
+                    <table>
+                        <tr>
+                            <td><span>85%</span></td>
+                            <td><span>87%</span></td>
+                        </tr>
+                        <tr>
+                            <td>Month</td>
+                            <td>Year</td>
+                        </tr>
+                    </table>
+                </div>
+                <button>Profile</button>
+            </div>
+            <div class="card">
+                <img th:src="@{/images/anonymous.jpg}">
+                <h4>Balbina kherr</h4>
+                <p>Progammer</p>
+                <div class="per">
+                    <table>
+                        <tr>
+                            <td><span>82%</span></td>
+                            <td><span>85%</span></td>
+                        </tr>
+                        <tr>
+                            <td>Month</td>
+                            <td>Year</td>
+                        </tr>
+                    </table>
+                </div>
+                <button>Profile</button>
+            </div>
+            <div class="card">
+                <img th:src="@{/images/anonymous.jpg}">
+                <h4>Badan John</h4>
+                <p>tester</p>
+                <div class="per">
+                    <table>
+                        <tr>
+                            <td><span>94%</span></td>
+                            <td><span>92%</span></td>
+                        </tr>
+                        <tr>
+                            <td>Month</td>
+                            <td>Year</td>
+                        </tr>
+                    </table>
+                </div>
+                <button>Profile</button>
+            </div>
+            <div class="card">
+                <img th:src="@{/images/anonymous.jpg}">
+                <h4>Salina micheal</h4>
+                <p>Ui designer</p>
+                <div class="per">
+                    <table>
+                        <tr>
+                            <td><span>85%</span></td>
+                            <td><span>82%</span></td>
+                        </tr>
+                        <tr>
+                            <td>Month</td>
+                            <td>Year</td>
+                        </tr>
+                    </table>
+                </div>
+                <button>Profile</button>
+            </div>
+        </div>
+
+        <section class="attendance">
+            <div class="attendance-list">
+                <h1>Articles</h1>
+                <div class="search-bar">
+                    <a class="add-button" th:href="@{/newArticle}">NEW</a>
+                    <div class="bar">
+                        <form th:action="@{/authors/search}" class="search-form">
+                            <input name="query" type="search" class="search-input" placeholder="Search author...">
+                        </form>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Author Name</th>
+                        <th>email</th>
+                        <th>number of story</th>
+                        <th>Latest Story</th>
+                        <th>Options</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="author : ${authors}">
+                        <td th:text="${author.names}"></td>
+                        <td th:text="${author.email}"></td>
+                        <td >2</td>
+                        <td>Last lakers game</td>
+                        <td><a class="view-button" th:href="@{/authors/{authorId}/edit(authorId=${author.authorId})}">View</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+</div>
+</body>
+</html>
+</span>
