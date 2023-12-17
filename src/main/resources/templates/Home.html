@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>Thee Collective</title>
+    <link th:href="@{/style/home.css}" rel="stylesheet">
+</head>
+<body>
+<div layout:fragment="body" class="main-content">
+  <section class="left-section">
+    <div class="slider-container">
+        <button class="slider-btn prev-btn">&#10094;</button>
+        <div class="slider">
+            <div class="slide" th:each="article : ${carouselArticles}">
+                <img th:src="${article.coverUrl}" alt="Image 1">
+                <h3 th:text="${article.title}">article Title</h3>
+            </div>
+        </div>
+        <button class="slider-btn next-btn">&#10095;</button>
+    </div>
+      <h1 id="title1">Entertainment</h1>
+      <div class="section">
+          <div class="section-item" th:each="article : ${category1Articles}" th:if="${article.category} == entertainment">
+              <img th:src="${article.coverUrl}" alt="Image 1">
+              <div class="section-title" th:text="${article.title}">Title 1</div>
+          </div>
+      </div>
+      <h1 id="title2">Sport</h1>
+      <div class="section">
+          <div class="section-item" th:each="article : ${category1Articles}" th:if="${article.category} == sport">
+              <img th:src="${article.coverUrl}" alt="Image 1">
+              <div class="section-title" th:text="${article.title}">Title 1</div>
+          </div>
+      </div>
+  </section>
+      </div>
+      <script th:src="@{/js/trial.js}"></script>
+  </section>
+</div>
+</body>
+</html>
