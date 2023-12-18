@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Author Edit</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" th:href="@{/style/edit.css}" />
+</head>
+<body>
+<h1>Article Submission Form</h1>
+<form role="form" method="post" th:action="@{/authors/{authorId}/edit(authorId=${author.authorId})}" th:object="${author}">
+    <input type="hidden" th:field="*{authorId}">
+    <label for="Names">Email:</label>
+    <input type="text" id="Names" name="Names" th:field="*{Names}"><br>
+    <label for="email">Names:</label>
+    <input type="email" id="email" name="email" th:field="*{email}"><br>
+    <label for="penName">Pen Name:</label>
+    <input type="text" id="penName" name="penName" th:field="*{penName}"><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" th:field="*{password}"><br>
+    <input type="submit" value="Submit">
+    <a class="delete-button" th:href="@{/authors/{authorId}/delete(authorId=${author.authorId})}">Delete</a>
+</form>
+</body>
+</html>
