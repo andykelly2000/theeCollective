@@ -1,10 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <link th:href="@{/style/admin.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
+        .report-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            background-color: #3d3d3d;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>Admin</title>
+</head>
+<nav>
+    <ul>
+        <li><a th:href="@{/Admin/Article}" class="logo">
+            <img th:src="@{/images/anonymous.jpg}">
+            <span class="nav-item">Admin</span>
+        </a></li>
+        <li><a th:href="@{/Admin/Article}">
+            <i class="fas fa-chart-bar"></i>
+            <span class="nav-item">Articles</span>
+        </a></li>
+        <li><a th:href="@{/Admin/Author}">
+            <i class="fas fa-chart-bar"></i>
+            <span class="nav-item">Authors</span>
+        </a></li>
+        <li><a th:href="@{/Admin/User}">
+            <i class="fas fa-chart-bar"></i>
+            <span class="nav-item">Users</span>
+        </a></li>
+        <li><a th:href="@{/Report}">
+            <i class="fas fa-database"></i>
+            <span class="nav-item">Report</span>
+        </a></li>
+        <li><a th:href="@{/}" class="logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="nav-item">Log out</span>
+        </a></li>
+    </ul>
+</nav>
+<body>
+    <div class="report-container">
+        <h1>Report Page</h1>
+        <p>Welcome to the report page where you can download your report.</p>
+        <a th:href="@{/report/generate}" download class="download-button">Download Report</a>
+    </div>
 </body>
 </html>

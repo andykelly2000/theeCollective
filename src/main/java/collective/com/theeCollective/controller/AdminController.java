@@ -183,8 +183,12 @@ public class AdminController {
         articleService.delete(articleId);
         return "redirect:/Admin/Article";
     }
+    @GetMapping("/report")
+    public String deleteArticle(){
+        return "Report";
+    }
 
-    @GetMapping(value = "/openPdf/articleReport", produces = MediaType.APPLICATION_PDF_VALUE)
+    @GetMapping(value = "/report/generate", produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<InputStreamResource> articleReport() throws IOException{
         List<ArticleDto> articles = articleService.findAllArticles();
         ByteArrayInputStream bis = DatabasePDFService.articlePDFReport(articles);

@@ -91,6 +91,7 @@
               <h1>Articles</h1>
               <div class="search-bar">
                 <a class="add-button" th:href="@{/newArticle}">NEW</a>
+                <a th:href="@{/report/generate}" download class="add-button">Download Report</a>
                 <div class="bar">
                   <form th:action="@{/articles/search}" class="search-form">
                     <input name="query" type="search" class="search-input" placeholder="Search article...">

@@ -53,25 +53,25 @@ public class DatabasePDFService {
                 articleNameCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(articleNameCell);
 
-                PdfPCell authorCell = new PdfPCell(new Phrase(article.getTitle()));
+                PdfPCell authorCell = new PdfPCell(new Phrase(article.getAuthorName()));
                 authorCell.setPaddingLeft(4);
                 authorCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 authorCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(authorCell);
 
-                PdfPCell categoryCell = new PdfPCell(new Phrase(article.getTitle()));
+                PdfPCell categoryCell = new PdfPCell(new Phrase(article.getCategory()));
                 categoryCell.setPaddingLeft(4);
                 categoryCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 categoryCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(categoryCell);
 
-                PdfPCell viewsCell = new PdfPCell(new Phrase(article.getTitle()));
+                PdfPCell viewsCell = new PdfPCell(new Phrase(article.getViews()));
                 viewsCell.setPaddingLeft(4);
                 viewsCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 viewsCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(viewsCell);
 
-                PdfPCell updatedOnCell = new PdfPCell(new Phrase(article.getTitle()));
+                PdfPCell updatedOnCell = new PdfPCell(new Phrase(article.getUploadedon().toString()));
                 updatedOnCell.setPaddingLeft(4);
                 updatedOnCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 updatedOnCell.setHorizontalAlignment(Element.ALIGN_CENTER);
