@@ -41,11 +41,6 @@ public class DatabasePDFService {
             });
 
             for (ArticleDto article : articles){
-                PdfPCell idCell = new PdfPCell(new Phrase(article.getArticleId()));
-                idCell.setPaddingLeft(4);
-                idCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                idCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                table.addCell(idCell);
 
                 PdfPCell articleNameCell = new PdfPCell(new Phrase(article.getTitle()));
                 articleNameCell.setPaddingLeft(4);
