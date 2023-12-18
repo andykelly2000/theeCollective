@@ -8,10 +8,15 @@
 </head>
 <body>
 <h1>Article Submission Form</h1>
-<form role="form" method="post" th:action="@{/newArticle}" th:object="${article}">
+<form role="form" method="post" th:action="@{/newAuthor}" th:object="${author}">
     <label for="title">Author Names:</label>
     <input type="text" id="title" name="names" th:field="*{names}"><br>
-
+    <label for="title">Author Names:</label>
+    <input type="text" id="title" name="names" th:field="*{penName}"><br>
+    <label for="title">Author Names:</label>
+    <input type="text" id="title" name="names" th:field="*{email}"><br>
+    <label for="title">Author Names:</label>
+    <input type="password" id="title" name="names" th:field="*{password}"><br>
     <input type="submit" value="Submit">
 </form>
 </body>

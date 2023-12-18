@@ -5,7 +5,7 @@ import collective.com.theeCollective.model.Article;
 
 import java.util.List;
 
-public interface ArticleService {
+public interface  ArticleService {
     List<ArticleDto> findAllArticles();
     ArticleDto findById(long articleId);
 

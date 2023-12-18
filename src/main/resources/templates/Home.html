@@ -24,7 +24,7 @@
         <h1 id="title1">Entertainment</h1>
         <div class="section">
 
-            <div class="section-item" th:each="article : ${category1Articles}" th:if="${article.category} == entertainment">
+            <div class="section-item" th:each="article : ${carouselArticles}" th:if="${article.category} == entertainment">
                 <a th:href="@{/Article/{ArticleID}/view(ArticleID=${article.articleId})}">
                     <img th:src="${article.coverUrl}" alt="Image 1">
                     <div class="section-title" th:text="${article.title}">Title 1</div>
@@ -33,7 +33,7 @@
         </div>
         <h1 id="title2">Sport</h1>
         <div class="section">
-            <div class="section-item" th:each="article : ${category1Articles}" th:if="${article.category} == sport">
+            <div class="section-item" th:each="article : ${carouselArticles}" th:if="${article.category} == sport">
                 <a th:href="@{/Article/{ArticleID}/view(ArticleID=${article.articleId})}">
                     <img th:src="${article.coverUrl}" alt="Image 1">
                     <div class="section-title" th:text="${article.title}">Title 1</div>
@@ -42,7 +42,7 @@
         </div>
         <h1 id="title3">Fashion</h1>
         <div class="section">
-            <div class="section-item" th:each="article : ${category1Articles}" th:if="${article.category} == fashion">
+            <div class="section-item" th:each="article : ${carouselArticles}" th:if="${article.category} == fashion">
                 <a th:href="@{/Article/{ArticleTitle}/view(ArticleTitle=${article.title})}">
                     <img th:src="${article.coverUrl}" alt="Image 1">
                 </a>
@@ -61,7 +61,7 @@
             </div>
 
             <div class="col-md-6 template-by">
-                <p>Designed By IRIMBERE Andy Kelly</p>
+                <p>Designed By Marion Uwase</p>
             </div>
         </div>
     </div>

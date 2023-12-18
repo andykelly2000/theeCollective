@@ -168,7 +168,18 @@
     text-align: center;
     margin-top: 20px;
   }
-  
+
+h1 #title2{
+  text-align: center;
+  margin-top: 20px;
+}
+
+h1 #title3{
+  text-align: center;
+  margin-top: 20px;
+
+}
+
   .section {
     display: flex;
     justify-content: center;
@@ -252,4 +263,7 @@
     width: 150px;
     height: 15%;
     margin-left: 10px;
+  }
+  body{
+    background-color: lightgray;
   }

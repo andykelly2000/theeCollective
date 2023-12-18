@@ -135,6 +135,8 @@ public class AdminController {
         List<AuthorDto> authors = authorService.findAllAuthor();
         model.addAttribute("authors", authors);
         model.addAttribute("article", article);
+        List<ArticleDto> category1Articles = articleService.findAllArticles();
+        model.addAttribute("category1Articles", category1Articles);
         return "edit-article";
     }
 
@@ -203,8 +205,8 @@ public class AdminController {
 
     @GetMapping("/users/search")
     public String searchUser(@RequestParam(value = "query") String query, Model model){
-        List<CustomerDto> users = customerService.searchUser(query);
-        model.addAttribute("users", users);
+        List<CustomerDto> customers = customerService.searchUser(query);
+        model.addAttribute("customers", customers);
         return "Admin-Users";
     }
 
