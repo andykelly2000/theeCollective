@@ -218,6 +218,10 @@ table thead tr{
     transition: background-color 0.3s;
 }
 
+#download {
+    margin-left: 20px;
+}
+
 .add-new:hover {
     background-color: white;
     color: #333333;

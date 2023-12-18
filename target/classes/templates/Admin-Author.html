@@ -102,8 +102,7 @@
                     <tr>
                         <th>Author Name</th>
                         <th>email</th>
-                        <th>number of story</th>
-                        <th>Latest Story</th>
+                        <th>Stories</th>
                         <th>Options</th>
                     </tr>
                     </thead>
@@ -111,8 +110,7 @@
                     <tr th:each="author : ${authors}">
                         <td th:text="${author.names}"></td>
                         <td th:text="${author.email}"></td>
-                        <td >2</td>
-                        <td>Last lakers game</td>
+                        <td><a th:href="@{/Admin/Article}"></a></td>
                         <td><a class="view-button" th:href="@{/authors/{authorId}/edit(authorId=${author.authorId})}">View</a></td>
                     </tr>
                     </tbody>

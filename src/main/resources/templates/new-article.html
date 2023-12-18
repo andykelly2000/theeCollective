@@ -28,11 +28,10 @@
         <option value="sport">Sport</option>
         <option value="fashion">Fashion</option>
         <option value="entertainment">Entertainment</option>
+        <option value="politics">Politics</option>
     </select><br>
 
-    <label for="uploadDate">Upload Date:</label>
-    <input type="text" id="uploadDate" name="uploadDate" th:field="*{uploadedon}" required><br>
-
+    <input type="hidden" id="uploadDate" name="uploadDate" th:field="*{uploadedon}" placeholder=" "><br>
     <label for="imageUrl">Image URL:</label>
     <input type="url" id="imageUrl" name="imageUrl" th:field="*{coverUrl}" required><br>
 

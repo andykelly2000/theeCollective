@@ -91,7 +91,7 @@
               <h1>Articles</h1>
               <div class="search-bar">
                 <a class="add-button" th:href="@{/newArticle}">NEW</a>
-                <a th:href="@{/report/generate}" download class="add-button">Download Report</a>
+                <a th:href="@{/report/generate}" download class="add-button" id="download">Download Report</a>
                 <div class="bar">
                   <form th:action="@{/articles/search}" class="search-form">
                     <input name="query" type="search" class="search-input" placeholder="Search article...">
@@ -106,7 +106,6 @@
                   <th>Category</th>
                   <th>Date</th>
                   <th>Views</th>
-                  <th>Likes</th>
                   <th>Options</th>
                 </tr>
                 </thead>
@@ -117,7 +116,6 @@
                   <td th:text="${article.category}"></td>
                   <td th:text="${article.uploadedon}"></td>
                   <td th:text="${article.views}"></td>
-                  <td>15</td>
                   <td><a class="view-button" th:href="@{/articles/{articleId}/edit(articleId=${article.articleId})}">View</a></td>
                 </tr>
                 </tbody>
