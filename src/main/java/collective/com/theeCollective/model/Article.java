@@ -23,6 +23,7 @@ public class Article {
     private int articleId;
     private String title;
     @Lob
+    @Column(length = 4000)
     private String summary;
     @Lob
     @Column(length = 8000)

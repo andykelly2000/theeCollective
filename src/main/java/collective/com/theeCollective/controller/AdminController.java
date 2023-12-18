@@ -32,7 +32,6 @@ public class AdminController {
     private ArticleService articleService;
     private AuthorService authorService;
     private CustomerService customerService;
-
     private Mail mail;
 
     @Autowired
@@ -57,16 +56,19 @@ public class AdminController {
 
         List<ArticleDto> carouselArticles = articleService.findAllArticles();
         model.addAttribute("carouselArticles", carouselArticles);
-        List<ArticleDto> category1Articles = articleService.findAllArticles();
-        model.addAttribute("category1Articles", category1Articles);
-        List<ArticleDto> category2Articles = articleService.findAllArticles();
-        model.addAttribute("category2Articles", category2Articles);
-        List<ArticleDto> category3Articles = articleService.findAllArticles();
-        model.addAttribute("category3Articles", category3Articles);
-        List<AuthorDto> authors = authorService.findAllAuthor();
-        model.addAttribute("authors", authors);
-        return "Home";
+        return "index";
     }
+
+    @GetMapping("/Article/{ArticleID}/view")
+    public String displayPage(@PathVariable("ArticleID") Long ArticleId, Model model){
+        ArticleDto article = articleService.findById(ArticleId);
+        model.addAttribute("article",article);
+        int views = article.getViews() + 1;
+        article.setViews(views);
+        articleService.updateArticle(article);
+        return "single-page";
+    }
+
     @GetMapping("/Login")
     public String Login(Model model){
         Customer customer = new Customer();
@@ -77,19 +79,15 @@ public class AdminController {
     @PostMapping("/Login")
     public String LoginManagement(@ModelAttribute("customer") Customer customer, HttpServletRequest request){
         Customer customer1 = customerService.loginUser(customer.getUsername());
-        if(customer1.getUsername() == "admin"){
-            return "Admin-Article";
-        }else if(customer1.getPassword() == customer.getPassword()){
-            @SuppressWarnings("unchecked")
-            String username = (String) request.getSession().getAttribute("username");
-            if (username == null) {
-                username = customer.getUsername();
-                request.getSession().setAttribute("username", username);
-            } else{
-                request.getSession().setAttribute("username", customer.getUsername());
-            }
-            System.out.println("logged in");
+        @SuppressWarnings("unchecked")
+        String username = (String) request.getSession().getAttribute("username");
+        if (username == null) {
+            username = customer.getUsername();
+            request.getSession().setAttribute("username", username);
+        } else{
+            request.getSession().setAttribute("username", customer.getUsername());
         }
+        System.out.println("logged in");
 
         return "redirect:/";
     }
@@ -315,6 +313,4 @@ public class AdminController {
         authorService.delete(authorId);
         return "redirect:/Admin/Author";
     }
-
-
 }

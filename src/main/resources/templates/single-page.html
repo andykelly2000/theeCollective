@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>News Website Template - Free HTML Templates</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="News Website Template - Free HTML Templates" name="keywords">
+        <meta content="News Website Template - Free HTML Templates" name="description">
+
+        <!-- Favicon -->
+        <link th:href="@{img/favicon.ico}" rel="icon">
+
+        <!-- Google Fonts -->
+        <link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap}" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css}" rel="stylesheet">
+        <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css}" rel="stylesheet">
+        <link th:href="@{/lib/slick/slick.css}" rel="stylesheet">
+        <link th:href="@{/lib/slick/slick-theme.css}" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link th:href="@{/style/style.css}" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Nav Bar Start -->
+        <div class="nav-bar">
+            <div class="container">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a th:href="@{/}" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            <a th:href="@{/}" class="nav-item nav-link">Home</a>
+                            <div class="nav-item dropdown">
+                                <a th:href="@{/}" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                                <div class="dropdown-menu">
+                                    <a href="@{/}" class="dropdown-item">Sub Item 1</a>
+                                    <a th:href="@{/}" class="dropdown-item">Sub Item 2</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="social ml-auto">
+                            <a href="https://freewebsitecode.com/"><i class="fab fa-twitter"></i></a>
+                                    <a th:href="@{https://facebook.com/freewebsitecode/}"><i class="fab fa-facebook-f"></i></a>
+                                    <a th:href="@{https://freewebsitecode.com/}"><i class="fab fa-linkedin-in"></i></a>
+                                    <a th:href="@{https://freewebsitecode.com/}"><i class="fab fa-instagram"></i></a>
+                                    <a th:href="@{https://www.youtube.com/channel/UC9HlQRmKgG3jeVD_fBxj1Pw/videos}"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Nav Bar End -->
+
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-wrap">
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@{/}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="@{/}">News</a></li>
+                    <li class="breadcrumb-item active">News details</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+
+        <!-- Single News Start-->
+        <div class="single-news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="sn-container">
+                            <div class="sn-img" >
+                                <img th:src="@{imgages/news-825x525.jpg}" />
+                            </div>
+                            <div class="sn-content" th:object="${article}">
+                                <h1 class="sn-title" th:text="${article.title}">Lorem ipsum dolor sit amet</h1>
+                                <p th:text="${article.summary}">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer molestie, lorem eu eleifend bibendum, augue purus mollis sapien, non rhoncus eros leo in nunc. Donec a nulla vel turpis consectetur tempor ac vel justo. In hac habitasse platea dictumst. Cras nec sollicitudin eros. Nunc eu enim non turpis sagittis rhoncus consectetur id augue. Mauris dignissim neque felis. Phasellus mollis mi a pharetra cursus. Maecenas vulputate augue placerat lacus mattis, nec ornare risus sollicitudin.
+                                </p>
+                                <h2>More On the subject</h2>
+                                <p th:text="${article.content}">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer molestie, lorem eu eleifend bibendum, augue purus mollis sapien, non rhoncus eros leo in nunc. Donec a nulla vel turpis consectetur tempor ac vel justo. In hac habitasse platea dictumst. Cras nec sollicitudin eros. Nunc eu enim non turpis sagittis rhoncus consectetur id augue. Mauris dignissim neque felis. Phasellus mollis mi a pharetra cursus. Maecenas vulputate augue placerat lacus mattis, nec ornare risus sollicitudin.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="sidebar">
+                            <div class="sidebar-widget">
+                            </div>
+
+                            <div class="sidebar-widget">
+                                <div class="tab-news">
+                                    <ul class="nav nav-pills nav-justified">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-toggle="pill" th:href="@{/}">Featured</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="pill" th:href="@{/}">Popular</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="pill" th:href="@{/}">Latest</a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                        <div id="featured" class="container tab-pane active">
+                                            <div class="tn-news">
+                                                <div class="tn-img">
+                                                    <img th:src="@{images/news-350x223-1.jpg}" />
+                                                </div>
+                                                <div class="tn-title">
+                                                    <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                </div>
+                                            </div>
+                                            <div class="tn-news">
+                                                <div class="tn-img">
+                                                    <img th:src="@{images/news-350x223-2.jpg}" />
+                                                </div>
+                                                <div class="tn-title">
+                                                    <a th:href="@{/}">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                </div>
+                                            </div>
+                                            <div class="tn-news">
+                                                <div class="tn-img">
+                                                    <img th:src="@{images/news-350x223-3.jpg}" />
+                                                </div>
+                                                <div class="tn-title">
+                                                    <a th:href="@{/}">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                </div>
+                                            </div>
+                                            <div class="tn-news">
+                                                <div class="tn-img">
+                                                    <img th:src="@{images/news-350x223-4.jpg}" />
+                                                </div>
+                                                <div class="tn-title">
+                                                    <a th:href="@{/}">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                </div>
+                                            </div>
+                                            <div class="tn-news">
+                                                <div class="tn-img">
+                                                    <img th:src="@{/}" />
+                                                </div>
+                                                <div class="tn-title">
+                                                    <a th:href="@{/}">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="popular" class="container tab-pane fade">
+                                            <div class="tn-news">
+                                                <div class="tn-img">
+                                                    <img th:src="@{images/news-350x223-4.jpg}" />
+                                                </div>
+                                                <div class="tn-title">
+                                                    <a th:href="@{/}">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                </div>
+                                            </div>
+                                            <div class="tn-news">
+                                                <div class="tn-img">
+                                                    <img th:rc="@{images/news-350x223-3.jpg}" />
+                                                </div>
+                                                <div class="tn-title">
+                                                    <a th:href="@{/}">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                </div>
+                                            </div>
+                                            <div class="tn-news">
+                                                <div class="tn-img">
+                                                    <img th:src="@{images/news-350x223-2.jpg}" />
+                                                </div>
+                                                <div class="tn-title">
+                                                    <a th:href="@{/}">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                </div>
+                                            </div>
+                                            <div class="tn-news">
+                                                <div class="tn-img">
+                                                    <img th:src="@{images/news-350x223-1.jpg}" />
+                                                </div>
+                                                <div class="tn-title">
+                                                    <a th:href="@{/}">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                </div>
+                                            </div>
+                                            <div class="tn-news">
+                                                <div class="tn-img">
+                                                    <img th:src="@{image/news-350x223-2.jpg}" />
+                                                </div>
+                                                <div class="tn-title">
+                                                    <a th:href="@{/}">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="latest" class="container tab-pane fade">
+                                            <div class="tn-news">
+                                                <div class="tn-img">
+                                                    <img th:src="@{image/news-350x223-3.jpg}" />
+                                                </div>
+                                                <div class="tn-title">
+                                                    <a th:href="@{/}">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                </div>
+                                            </div>
+                                            <div class="tn-news">
+                                                <div class="tn-img">
+                                                    <img th:src="@{image/news-350x223-4.jpg}" />
+                                                </div>
+                                                <div class="tn-title">
+                                                    <a th:href="@{/}">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                </div>
+                                            </div>
+                                            <div class="tn-news">
+                                                <div class="tn-img">
+                                                    <img th:src="@{image/news-350x223-5.jpg}" />
+                                                </div>
+                                                <div class="tn-title">
+                                                    <a th:href="@{/}">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                </div>
+                                            </div>
+                                            <div class="tn-news">
+                                                <div class="tn-img">
+                                                    <img th:src="@{image/news-350x223-4.jpg}" />
+                                                </div>
+                                                <div class="tn-title">
+                                                    <a th:href="@{/}">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                </div>
+                                            </div>
+                                            <div class="tn-news">
+                                                <div class="tn-img">
+                                                    <img th:src="@{image/news-350x223-3.jpg}" />
+                                                </div>
+                                                <div class="tn-title">
+                                                    <a th:href="@{/}">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sidebar-widget">
+                                <div class="image">
+                                    <a th:href="@{https://htmlcodex.com}"><img th:src="@{image/ads-2.jpg}" alt="Image"></a>
+                                </div>
+                            </div>
+
+                            <div class="sidebar-widget">
+                                <h2 class="sw-title">News Category</h2>
+                                <div class="category">
+                                    <ul>
+                                        <li><a th:href="@{/}">National</a><span>(98)</span></li>
+                                        <li><a th:href="@{/}">International</a><span>(87)</span></li>
+                                        <li><a th:href="@{/}">Economics</a><span>(76)</span></li>
+                                        <li><a th:href="@{/}">Politics</a><span>(65)</span></li>
+                                        <li><a th:href="@{/}">Lifestyle</a><span>(54)</span></li>
+                                        <li><a th:href="@{/}">Technology</a><span>(43)</span></li>
+                                        <li><a th:href="@{/}">Trades</a><span>(32)</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="sidebar-widget">
+                                <div class="image">
+                                    <a th:href="@{https://htmlcodex.com}"><img th:src="@{image/ads-2.jpg}" alt="Image"></a>
+                                </div>
+                            </div>
+
+                            <div class="sidebar-widget">
+                                <h2 class="sw-title">Tags Cloud</h2>
+                                <div class="tags">
+                                    <a th:href="@{/}">National</a>
+                                    <a href="@{/}">International</a>
+                                    <a href="@{/}">Economics</a>
+                                    <a href="@{/}">Politics</a>
+                                    <a href="@{/}">Lifestyle</a>
+                                    <a href="@{/}">Technology</a>
+                                    <a href="@{/}">Trades</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single News End-->
+
+        <!-- Footer Bottom Start -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 copyright">
+                        <p>Copyright &copy; <a th:href="@{/}">Thee-Collective</a>. All Rights Reserved</p>
+                    </div>
+
+                    <div class="col-md-6 template-by">
+                        <p>Designed By IRIMBERE Andy Kelly</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom End -->
+
+        <!-- Back to Top -->
+        <a th:href="{/}" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script th:src="@{https://code.jquery.com/jquery-3.4.1.min.js}"></script>
+        <script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js}"></script>
+        <script th:src="@{lib/easing/easing.min.js}"></script>
+        <script th:src="@{lib/slick/slick.min.js}"></script>
+
+        <!-- Template Javascript -->
+        <script th:src="@{js/main.js}"></script>
+    </body>
+</html>
