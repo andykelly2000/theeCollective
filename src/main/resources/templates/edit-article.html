@@ -37,9 +37,7 @@
 
     <label for="imageUrl">Image URL:</label>
     <input type="url" id="imageUrl" name="imageUrl" th:field="*{coverUrl}" required><br>
-    <label for="cover">Image:</label>
-
-
+    
     <input type="submit" value="Submit">
     <a class="delete-button" th:href="@{/articles/{articleId}/delete(articleId=${article.articleId})}">Delete</a>
 </form>
