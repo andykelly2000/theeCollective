@@ -31,7 +31,7 @@
         <option value="politics">Politics</option>
     </select><br>
 
-    <input type="hidden" id="uploadDate" name="uploadDate" th:field="*{uploadedon}" placeholder=" "><br>
+    <input type="hidden" id="uploadDate" name="uploadDate" th:field="*{uploadedon}" th:value=" "><br>
     <label for="imageUrl">Image URL:</label>
     <input type="url" id="imageUrl" name="imageUrl" th:field="*{coverUrl}" required><br>
 
