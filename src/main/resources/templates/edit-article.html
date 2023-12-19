@@ -33,13 +33,22 @@
         <option value="politics">Politics</option>
     </select><br>
 
-    <input type="hidden" id="uploadDate" name="uploadDate" th:field="*{uploadedon}" placeholder=" "><br>
-
+    <label for="uploadDate">Upload Date:</label>
+    <input type="text" id="uploadDate" name="uploadDate" th:field="*{uploadedon}" placeholder="Select date" required><br>
     <label for="imageUrl">Image URL:</label>
     <input type="url" id="imageUrl" name="imageUrl" th:field="*{coverUrl}" required><br>
 
     <input type="submit" value="Submit">
     <a class="delete-button" th:href="@{/articles/{articleId}/delete(articleId=${article.articleId})}">Delete</a>
 </form>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const datePickerField = document.getElementById('uploadDate');
+        const datePickerOptions = {
+            // Configure options if needed
+        };
+        const datePicker = new Datepicker(datePickerField, datePickerOptions);
+    });
+</script>
 </body>
 </html>
